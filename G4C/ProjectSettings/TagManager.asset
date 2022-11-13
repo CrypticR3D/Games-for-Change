@@ -6,11 +6,13 @@ TagManager:
   tags:
   - CinemachineTarget
   - Car
+  - Door
+  - InteractiveObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interact
   - Water
   - UI
   - Volume
