@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
     internal bool canOpen = true;
 
     //Player
-    public SC_FPSController PlayerCharacter;
+    public GameObject PlayerCharacter;
+    public SC_FPSController PlayerCharacterScript;
 
     //Tasks
     [SerializeField] private GameObject _TaskOne;
@@ -32,13 +33,13 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        PlayerCharacter = FindObjectOfType<SC_FPSController>();
+        //PlayerCharacterScript = FindObjectOfType<SC_FPSController>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -87,7 +88,8 @@ public class UIManager : MonoBehaviour
         IsOnMenu = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        PlayerCharacter.canMove = false;
+        //PlayerCharacter.canMove = false;
+        PlayerCharacterScript.enabled = false;
     }
 
     public void Resume()
@@ -97,7 +99,8 @@ public class UIManager : MonoBehaviour
         IsOnMenu = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        PlayerCharacter.canMove = true;
+        //PlayerCharacter.canMove = true;
+        PlayerCharacterScript.enabled = true;
     }
 
     public void Home(int sceneID)
