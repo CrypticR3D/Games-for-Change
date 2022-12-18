@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+
+    //Menu
+    [SerializeField] private string MenuAnimationName = "MenuAnimation";
+    public Animator MenuAnim;
+    public bool IsOnMainMenu;
+
     //Crosshair
     [SerializeField] private Image crosshair = null;
     private bool isCrosshairActive;
@@ -34,12 +40,13 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         //PlayerCharacterScript = FindObjectOfType<SC_FPSController>();
+        MenuAnim = gameObject.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        IsOnMainMenu = true;
     }
 
     // Update is called once per frame
@@ -47,15 +54,24 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (IsOnMenu == false)
+            if (IsOnMainMenu)
             {
-                Pause();
+                //do something
             }
 
-            else if (IsOnMenu == true)
+            if (IsOnMainMenu == false)
             {
-                Resume();
+                if (IsOnMenu == false)
+                {
+                    Pause();
+                }
+
+                else if (IsOnMenu == true)
+                {
+                    Resume();
+                }
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -109,10 +125,19 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Play(int sceneID)
+    public void Play()
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        MenuAnim.Play(MenuAnimationName, 0, 0f);
+        
+        //Time.timeScale = 1f;
+    }
+
+    void LoadScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
-        //Time.timeScale = 1f;
     }
 
     public void Quit()
