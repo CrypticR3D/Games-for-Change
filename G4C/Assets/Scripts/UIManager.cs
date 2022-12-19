@@ -46,7 +46,19 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IsOnMainMenu = true;
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "G4C_Menu")
+        {
+            IsOnMainMenu = true;
+        }
+
+        else if (sceneName == "G4C_Map")
+        {
+            IsOnMainMenu = false;
+        }
+        
     }
 
     // Update is called once per frame
@@ -54,10 +66,6 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (IsOnMainMenu)
-            {
-                //do something
-            }
 
             if (IsOnMainMenu == false)
             {
