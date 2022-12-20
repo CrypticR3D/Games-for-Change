@@ -27,6 +27,8 @@ public class ToDoList : MonoBehaviour
     [SerializeField] private int waitTimer = 1;
     [SerializeField] private bool pauseInteraction = false;
 
+    public PlayerScript RayScript;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -51,6 +53,7 @@ public class ToDoList : MonoBehaviour
                     PlayerCharacter.canMove = false;
                     StartCoroutine(PauseInput());
                     //ToDoListObject.SetActive(true);
+                    RayScript.UiVisible = true;
                 }
 
                 else if (IsOnList == true)
@@ -62,6 +65,7 @@ public class ToDoList : MonoBehaviour
                     PlayerCharacter.canMove = true;
                     StartCoroutine(PauseInput());
                     //ToDoListObject.SetActive(false);
+                    RayScript.UiVisible = false;
                 }
             }
         }

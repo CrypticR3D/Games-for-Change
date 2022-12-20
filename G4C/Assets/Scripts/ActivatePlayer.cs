@@ -8,11 +8,14 @@ public class ActivatePlayer : MonoBehaviour
     [SerializeField] GameObject IntroCameraObject;
 
     //Player
-    public SC_FPSController PlayerCharacter;
+    public GameObject PlayerCharacter;
 
+    //UI
     [SerializeField] GameObject ToDoListObject;
     [SerializeField] GameObject MarkerObject;
+    [SerializeField] GameObject XpObject;
 
+    //Bed
     [SerializeField] GameObject BedObject;
 
 
@@ -23,6 +26,7 @@ public class ActivatePlayer : MonoBehaviour
         PlayerCharacter.gameObject.SetActive(true);
         ToDoListObject.gameObject.SetActive(true);
         MarkerObject.gameObject.SetActive(true);
+        XpObject.gameObject.SetActive(true);
         BedObject.gameObject.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;

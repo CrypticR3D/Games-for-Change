@@ -16,9 +16,11 @@ public class PlayerScript : MonoBehaviour
     //Tags
     private const string DoorTag = "Door";
     private const string InteractTag = "InteractiveObject";
+    private const string TaskTag = "TaskObject";
 
     //UI
     public UIManager HUDManager;
+    public bool UiVisible;
 
     void Awake()
     {
@@ -27,7 +29,15 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        CastRay();
+        if (UiVisible)
+        {
+            //dont cast ray
+        }
+        else
+        {
+            CastRay();
+        }
+        
     }
 
     void CastRay()
@@ -49,6 +59,11 @@ public class PlayerScript : MonoBehaviour
                 if (hitObject.CompareTag(InteractTag))
                 {
                     hitObject.GetComponent<IInteractable>()?.Interact();
+                }
+
+                if (hitObject.CompareTag(TaskTag))
+                {
+                    hitObject.GetComponent<Task>()?.FinishQuest();
                 }
             }
         }

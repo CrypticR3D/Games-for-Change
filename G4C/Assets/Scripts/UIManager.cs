@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     //Player
     public GameObject PlayerCharacter;
     public SC_FPSController PlayerCharacterScript;
+    
 
     //Tasks
     [SerializeField] private GameObject _TaskOne;
@@ -112,8 +113,8 @@ public class UIManager : MonoBehaviour
         IsOnMenu = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        //PlayerCharacter.canMove = false;
-        PlayerCharacterScript.enabled = false;
+        PlayerCharacterScript.canMove = false;
+        //PlayerCharacterScript.enabled = false;
     }
 
     public void Resume()
@@ -123,8 +124,8 @@ public class UIManager : MonoBehaviour
         IsOnMenu = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        //PlayerCharacter.canMove = true;
-        PlayerCharacterScript.enabled = true;
+        PlayerCharacterScript.canMove = true;
+        //PlayerCharacterScript.enabled = true;
     }
 
     public void Home(int sceneID)

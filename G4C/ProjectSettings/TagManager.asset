@@ -8,6 +8,7 @@ TagManager:
   - Car
   - Door
   - InteractiveObject
+  - TaskObject
   layers:
   - Default
   - TransparentFX
