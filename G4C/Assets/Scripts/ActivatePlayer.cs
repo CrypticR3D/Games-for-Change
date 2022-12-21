@@ -18,6 +18,8 @@ public class ActivatePlayer : MonoBehaviour
     //Bed
     [SerializeField] GameObject BedObject;
 
+    //ToolTips
+    [SerializeField] GameObject ToolTipObject;
 
 
     void EnablePlayer()
@@ -28,6 +30,7 @@ public class ActivatePlayer : MonoBehaviour
         MarkerObject.gameObject.SetActive(true);
         XpObject.gameObject.SetActive(true);
         BedObject.gameObject.SetActive(false);
+        ToolTipObject.gameObject.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

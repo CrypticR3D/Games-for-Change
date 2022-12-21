@@ -10,6 +10,11 @@ public class Task : MonoBehaviour
     public Slider XpSlider;
 
     private bool Complete = false;
+
+    [SerializeField] GameObject Bed_1;
+    [SerializeField] GameObject Bed_2;
+
+    public bool isBedTask;
     //public Color completedColor;
     //public Color activeColor;
 
@@ -26,8 +31,15 @@ public class Task : MonoBehaviour
 
     public void FinishQuest()
     {
+
         if (Complete == false)
         {
+            if (isBedTask)
+            {
+                Bed_1.gameObject.SetActive(false);
+                Bed_2.gameObject.SetActive(true);
+            }
+
             Complete = true;
             questItem.GetComponent<Image>().enabled = true; //= completedColor;
             XpSlider.value++;
