@@ -48,7 +48,7 @@ public class ToolTips : MonoBehaviour
 
             if (ToolTip_3)
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     StartCoroutine(DelayTipFinal());
                 }

@@ -8,6 +8,7 @@ public class Task : MonoBehaviour
 {
     public Image questItem;
     public Slider XpSlider;
+    public ActivatePlayer activatePlayer;
 
     private bool Complete = false;
 
@@ -15,19 +16,9 @@ public class Task : MonoBehaviour
     [SerializeField] GameObject Bed_2;
 
     public bool isBedTask;
-    //public Color completedColor;
-    //public Color activeColor;
 
-    //public QuestArrow arrow;
+    public bool isDressTask;
 
-    //private void OnTriggerEnter(Collider collision)
-    //{
-    //    if (collision.tag == "Player")
-    //    {
-    //        FinishQuest();
-    //        Destroy(gameObject);
-    //    }
-    //}
 
     public void FinishQuest()
     {
@@ -38,6 +29,12 @@ public class Task : MonoBehaviour
             {
                 Bed_1.gameObject.SetActive(false);
                 Bed_2.gameObject.SetActive(true);
+            }
+
+            if (isDressTask)
+            {
+                activatePlayer._ActivateHUD = true;
+                activatePlayer.EnablePlayer();
             }
 
             Complete = true;

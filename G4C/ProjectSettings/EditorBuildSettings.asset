@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/G4C_Menu.unity
     guid: f817199aea79d8244b81867c112d3f69
   - enabled: 1
+    path: Assets/G4C_Map Dev.unity
+    guid: c264e70496c1963488f091468e6af836
+  - enabled: 0
     path: Assets/G4C_Map.unity
     guid: bc0dcb314e911094ea946e62a1b1cb53
   m_configObjects:

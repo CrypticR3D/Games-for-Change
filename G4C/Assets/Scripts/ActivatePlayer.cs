@@ -21,16 +21,24 @@ public class ActivatePlayer : MonoBehaviour
     //ToolTips
     [SerializeField] GameObject ToolTipObject;
 
-
-    void EnablePlayer()
+    public bool _ActivatePlayer;
+    public bool _ActivateHUD;
+    public void EnablePlayer()
     {
-        IntroCameraObject.gameObject.SetActive(false);
-        PlayerCharacter.gameObject.SetActive(true);
-        ToDoListObject.gameObject.SetActive(true);
-        MarkerObject.gameObject.SetActive(true);
-        XpObject.gameObject.SetActive(true);
-        BedObject.gameObject.SetActive(false);
-        ToolTipObject.gameObject.SetActive(true);
+        if (_ActivatePlayer)
+        {
+            IntroCameraObject.gameObject.SetActive(false);
+            PlayerCharacter.gameObject.SetActive(true);
+            BedObject.gameObject.SetActive(false);
+            ToolTipObject.gameObject.SetActive(true);
+        }
+
+        if (_ActivateHUD)
+        {
+            ToDoListObject.gameObject.SetActive(true);
+            MarkerObject.gameObject.SetActive(true);
+            XpObject.gameObject.SetActive(true);
+        }
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

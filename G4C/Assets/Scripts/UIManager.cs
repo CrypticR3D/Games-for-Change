@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -36,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     //Day
     [SerializeField] private GameObject _Day;
+
 
 
     void Awake()
@@ -141,6 +144,7 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         MenuAnim.Play(MenuAnimationName, 0, 0f);
         
+
         //Time.timeScale = 1f;
     }
 
